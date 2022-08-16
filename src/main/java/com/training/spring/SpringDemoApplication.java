@@ -6,12 +6,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
+// @SpringBootApplication(scanBasePackages = {"com.training.spring", "com.training.before.lib"})
 public class SpringDemoApplication {
 
-	@Autowired
-	private MyObject myObjectBean;
+    @Autowired
+    private MyObject myObjectBean;
 
-	public void xyz() {
-		System.out.println(myObjectBean.hello("osman bean"));
-	}
+    public void xyz() {
+        System.out.println(myObjectBean.hello("osman bean"));
+    }
 }
