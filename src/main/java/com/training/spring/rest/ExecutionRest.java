@@ -15,8 +15,19 @@ public class ExecutionRest {
     @Qualifier("dynamic_execution")
     private IExecute execute;
 
+    @Autowired
+    @Qualifier("dynExecution")
+    private IExecute executeProfile;
+
+
     @GetMapping("/execute1")
     public String execute(){
         return execute.exec("exec deneme");
     }
+
+    @GetMapping("/execute2")
+    public String execute2(){
+        return executeProfile.exec("exec2 deneme");
+    }
+
 }

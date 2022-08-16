@@ -20,13 +20,13 @@ import java.util.List;
 // @RequestScope
 public class TestInjection {
 
+    @Qualifier("xyz_esp")
+    @Autowired
+    private IExecute execute;
+
     public TestInjection() {
         System.out.println("TestInjection yaratıldı");
     }
-
-    @Autowired
-    @Qualifier("xyz_esp")
-    private IExecute execute;
 
     @Autowired
     private MyObject mObject;
