@@ -1,0 +1,60 @@
+app:
+  user:
+    name: mustafa
+application:
+  prop:
+    build: 12
+    cities:
+    - istanbul
+    - ankara
+    - izmir
+    city-map:
+      adana:
+        name: adana
+        index: 1
+        shortName: adn
+      istanbul:
+        index: 34
+        name: istanbul
+        short-name: ist
+      izmir:
+        index: 35
+        name: izmir
+        short-name: iz
+    city_list:
+    - index: 34
+      name: istanbul
+      short-name: ist
+    - index: 35
+      name: izmir
+      short-name: iz
+    - index: 1
+      name: adana
+      shortName: adn
+    cycle: 1200
+    defaultCity:
+      index: 9
+      name: antalya
+      short-name: ant
+    description: yeni egitim
+    gitCommit: deneme commit
+    listenPort: 1200
+    name: app1
+    version: 1.0.1
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+server:
+  port: 9090
+  http2:
+    enabled: true
+  tomcat:
+    threads:
+      min-spare: 5
+      max: 20
+spring:
+  profiles:
+    active: turkish
+    default: english

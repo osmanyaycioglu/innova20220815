@@ -1,5 +1,6 @@
 package com.training.spring.injections;
 
+import com.training.spring.configprop.ApplicationProperties;
 import com.training.spring.java.IExecute;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -14,6 +15,9 @@ import javax.annotation.PreDestroy;
 public class MyAppRunner implements ApplicationRunner {
 
     private IExecute execute1;
+
+    @Autowired
+    private ApplicationProperties applicationProperties;
 
     // Field Injection
     @Autowired
@@ -60,5 +64,6 @@ public class MyAppRunner implements ApplicationRunner {
         System.out.println(execute1.exec("exec1"));
         System.out.println(execute2.exec("exec2"));
         System.out.println(execute3.exec("exec3"));
+        System.out.println(applicationProperties);
     }
 }
