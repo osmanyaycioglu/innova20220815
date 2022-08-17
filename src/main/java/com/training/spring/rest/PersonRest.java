@@ -1,6 +1,7 @@
 package com.training.spring.rest;
 
 import com.training.spring.common.Person;
+import com.training.spring.db.IPersonDao;
 import com.training.spring.events.MyEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -8,6 +9,8 @@ import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.MediaType;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/person")
@@ -19,9 +22,14 @@ public class PersonRest {
     @Value("${server.port}")
     private int port;
 
+    @Autowired
+    private IPersonDao iPersonDao;
+
     @PostMapping("/create")
     public PersonCreateResponse createPerson(@Validated @RequestBody Person person) {
         // Person creation
+        iPersonDao.save(person);
+        // List<Person> osmanList = iPersonDao.findByName("osman");
         MyEvent myEvent = new MyEvent(this);
         myEvent.setMessage(person.toString() + " created.");
         myEvent.setPort(port);

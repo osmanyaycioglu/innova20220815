@@ -3,12 +3,22 @@ package com.training.spring.common;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.time.LocalDate;
 
 @XmlRootElement
+@Entity
+@Table(name = "kisi")
 public class Person {
+
+    @Id
+    @GeneratedValue
+    private Long personId;
 
     @NotEmpty(message = "person ın ismi boş olamaz")
     @Size(min = 2,max = 20)
@@ -29,6 +39,14 @@ public class Person {
     @NotNull
     @Pattern(regexp = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$")
     private String password;
+
+    public Long getPersonId() {
+        return personId;
+    }
+
+    public void setPersonId(Long personId) {
+        this.personId = personId;
+    }
 
     public String getPassword() {
         return password;
