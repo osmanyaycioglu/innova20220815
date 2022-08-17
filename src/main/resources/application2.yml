@@ -9,10 +9,6 @@ application:
     - ankara
     - izmir
     city-map:
-      adana:
-        name: adana
-        index: 1
-        shortName: adn
       istanbul:
         index: 34
         name: istanbul
@@ -28,9 +24,6 @@ application:
     - index: 35
       name: izmir
       short-name: iz
-    - index: 1
-      name: adana
-      shortName: adn
     cycle: 1200
     defaultCity:
       index: 9
@@ -48,16 +41,6 @@ management:
         include: '*'
 server:
   port: 9090
-  http2:
-    enabled: true
-  tomcat:
-    threads:
-      min-spare: 5
-      max: 20
-  error:
-    include-binding-errors: ALWAYS
-    include-exception: true
-    include-message: ALWAYS
 spring:
   datasource:
     driverClassName: org.h2.Driver
@@ -73,9 +56,8 @@ spring:
       ddl-auto: update
     properties:
       hibernate:
-        format_sql: true
-        show_sql: true
+        format_sql: false
+        show_sql: false
   profiles:
     active: turkish
     default: english
-
