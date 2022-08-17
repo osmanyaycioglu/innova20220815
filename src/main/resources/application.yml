@@ -54,6 +54,10 @@ server:
     threads:
       min-spare: 5
       max: 20
+  error:
+    include-binding-errors: ALWAYS
+    include-exception: true
+    include-message: ALWAYS
 spring:
   profiles:
     active: turkish
